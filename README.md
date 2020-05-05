@@ -26,3 +26,9 @@ Chill outとは、『落ちつく』『ゆっくりする』のほか『遊び�
 
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1BqngL30nZG2e3H6Kjs03AUkWsqyT8WscM4mTVIAXK2o/edit?usp=sharing>
+
+### ER図
+<https://drive.google.com/file/d/1zjyvxVIAIMXGNi16NUQ-dpFBR44X_wRM/view?usp=sharing>
+
+### テーブル提議書
+<>
