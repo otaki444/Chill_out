@@ -7,9 +7,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:ital,wght@0,500;1,500&family=Vollkorn:ital@1&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <%= link_to 'Chill out', root_path, class: 'header--title' %>
+        <ul class="nav navbar-nav pull-right">
+          <li><%= link_to 'About', home_about_path %></li>
+          <li><%= link_to ' ログイン', new_user_session_path %></li>
+          <li><%= link_to ' 新規登録', new_user_registration_path %></li>
+        </ul>
+      </nav>
+    </header>
+
+    <body>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </body>
+
+    <footer>
+      <span>©Chill out</span>
+      <%= link_to '管理者', new_admin_session_path, class: '__admin' %>
+    </footer>
   </body>
 </html>
