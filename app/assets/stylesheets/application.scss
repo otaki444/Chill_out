@@ -236,13 +236,10 @@ footer {
 	line-height: 50px;
 	position: absolute;
 	bottom: 0;
-
-	& span {
-		color: white;
-	}
+	color: white;
 
 	& .__admin {
-		color: black;
+		color: white;
 
 	}
 }
