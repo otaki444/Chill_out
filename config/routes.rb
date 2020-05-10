@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+  get 'users/edit'
+  get 'users/update'
+  get 'users/destroy'
+  get 'relationships/follow'
+  get 'relationships/follower'
+  get 'relationships/create'
+  get 'relationships/destroy'
+  get 'posts/index'
+  get 'posts/show'
+  get 'posts/edit'
+  get 'posts/update'
+  get 'posts/destroy'
+  get 'favorites/index'
+  get 'favorites/create'
+  get 'favorites/destroy'
 	devise_for :users, controllers: {
 	  sessions:      'users/sessions',
 	  passwords:     'users/passwords',

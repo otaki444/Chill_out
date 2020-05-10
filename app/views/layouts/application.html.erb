@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:ital,wght@0,500;1,500&family=Vollkorn:ital@1&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b5c34d0b23.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -30,7 +31,7 @@
 
     <footer>
       <span>©Chill out</span>
-      <%= link_to '管理者', new_admin_session_path, class: '__admin' %>
+      <%= link_to '管理者', new_admin_session_path, class: '__admin fas fa-cogs' %>
     </footer>
   </body>
 </html>
