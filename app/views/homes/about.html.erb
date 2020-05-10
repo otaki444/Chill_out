@@ -1,2 +1,43 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div class="about-image">
+	<div class="cover">
+		<p class="__title">About Chillout</p>
+		<P class="__subtitle">
+			Chill outとは、『落ちつく』『ゆっくりする』のほか『遊びに行く』といった普段の何気ない時間を大切にしようという意味が込められています。<br>
+			そういった自分ならではのリラックスタイムにおけるこだわりを紹介してみませんか？<br>
+			また、気になっている趣味や素敵なリラックスタイムを探してみましょう!
+		</P>
+		<h2 class="__subtext">こんな方にオススメ</h2>
+		<div class="list-box">
+			<div class="__list">
+				<img src="/assets/house.jpeg" alt="about-image" class="--image">
+				<p class="--text">
+					ご自身のリラックスタイムにおけるこだわりをお持ちの方
+					または、こだわりを共有したい方
+				</p>
+			</div>
+			<div class="__list">
+				<img src="/assets/coffee.jpg" alt="about-image" class="--image">
+				<p class="--text">
+					ゆっくりとした時間や雰囲気が好きな方。落ち着く空間や、瞬間に包まれてみませんか?
+				</p>
+			</div>
+			<div class="__list">
+				<img src="/assets/music1.jpg" alt="about-image" class="--image">
+				<p class="--text">
+					音楽、料理、ファッション、インテリア、ヨガ、DIYなど趣味の思い出を残したい方
+				</p>
+			</div>
+			<div class="__list">
+				<img src="/assets/search.jpg" alt="about-image" class="--image">
+				<p class="--text">
+					新しい趣味やこだわりをお探しの方。
+					または、共通の趣味を持っている方とつながりを持ちたい方
+				</p>
+			</div>
+		</div>
+		<span><%= link_to 'さっそく始めてみましょう!', new_user_registration_path, class: 'start' %></span>
+	</div>
+</div>
+
+
+
