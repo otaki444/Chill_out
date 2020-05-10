@@ -1,23 +1,59 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <span class="need">※</span>
+    <%= f.label :name, 'お名前' %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <span class="need">※</span>
+    <%= f.label :name_kana, 'お名前(フリガナ)' %><br />
+    <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana" %>
+  </div>
+
+  <div class="field">
+    <span class="need">※</span>
+    <%= f.label :nickname, 'ニックネーム' %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_image_id, 'プロフィール画像' %><br />
+    <%= f.file_field :profile_image_id, autofocus: true, autocomplete: "profile_image_id" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, '自己紹介' %><br />
+    <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :one_word, '一言メッセージ' %><br />
+    <%= f.text_field :one_word, autofocus: true, autocomplete: "one_word" %>
+  </div>
+
+  <div class="field">
+    <span class="need">※</span>
+    <%= f.label :email, 'メールアドレス' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <span class="need">※</span>
+    <%= f.label :password, 'パスワード' %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <span>(6文字以上)</span>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <span class="need">※</span>
+    <%= f.label :password_confirmation, 'パスワード確認' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
