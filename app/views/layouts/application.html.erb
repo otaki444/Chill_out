@@ -14,11 +14,20 @@
   <body>
     <header>
       <nav>
-        <%= link_to 'Chill out', root_path, class: 'header--title' %>
+        <% if user_signed_in? %>
+          <%= link_to 'Chill out', posts_path, class: 'header--title' %>
+        <% else %>
+          <%= link_to 'Chill out', root_path, class: 'header--title' %>
+        <% end %>
         <ul class="nav navbar-nav pull-right">
-          <li><%= link_to 'About', home_about_path %></li>
-          <li><%= link_to ' ログイン', new_user_session_path %></li>
-          <li><%= link_to ' 新規登録', new_user_registration_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'マイページ', user_path(current_user) %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to ' ログイン', new_user_session_path %></li>
+            <li><%= link_to ' 新規登録', new_user_registration_path %></li>
+          <% end %>
         </ul>
       </nav>
     </header>

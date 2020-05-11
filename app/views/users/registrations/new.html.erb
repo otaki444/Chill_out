@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :profile_image_id, 'プロフィール画像' %><br />
-    <%= f.file_field :profile_image_id, autofocus: true, autocomplete: "profile_image_id" %>
+    <%= f.attachment_field :profile_image, autofocus: true, autocomplete: "profile_image_id" %>
   </div>
 
   <div class="field">

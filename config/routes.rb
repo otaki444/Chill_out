@@ -14,11 +14,12 @@ Rails.application.routes.draw do
 	# 管理者側
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update]
+    resources :tags, only: [:index, :create, :destroy]
   end
 
   # ECサイト
   root to: 'homes#home'
-  get 'home/about', to: 'homes#about'
+  get '/about', to: 'homes#about'
 
   resources :users, only: [:show, :edit, :update, :destroy] do
     get 'follow', to: 'relationships#follow'
@@ -27,10 +28,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:index, :create, :destroy]
   end
 
-  resources :posts, only: [:index, :show, :edit, :update, :destroy] do
+  resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-    resources :tags, only: [:create, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
