@@ -3,16 +3,16 @@ class ApplicationController < ActionController::Base
 
   protected
   def after_sign_up_path_for(resource)
-    user_path(resource) # サインアップ後に遷移するpath
+    posts_path # サインアップ後に遷移するpath
   end
   def after_sign_in_path_for(resource)
-    root_path # ログイン後に遷移するpath
+    posts_path # ログイン後に遷移するpath
   end
 
   def after_sign_out_path_for(resource)
     root_path # ログアウト後に遷移するpath
   end
   def configure_permitted_parameters
-	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nickname, :profile_image_id, :introduction, :one_word])
+	devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :name_kana, :nickname, :profile_image, :introduction, :one_word])
   end
 end

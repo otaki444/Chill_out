@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
-	attachment :image
 	belongs_to :post
+	attachment :image
 end
