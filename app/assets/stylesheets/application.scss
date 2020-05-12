@@ -124,13 +124,6 @@ header {
 	}
 }
 
-
-
-
-
-
-
-
 /* フッター */
 footer {
 	width: 100%;
@@ -149,9 +142,20 @@ footer {
 	}
 }
 
+/* 会員情報 */
+.user-info {
+	width: 100%;
+	background-color: white;
+	border-radius: 15px;
+	margin-top: 20px;
+	box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 新規登録 */
 .need {
 	color: red;
 }
+
 /* row初期設定変更 */
 .row {
 	margin-right: 0;

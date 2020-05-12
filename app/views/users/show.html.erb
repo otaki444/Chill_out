@@ -1,15 +1,27 @@
-<!-- スライドショー(仮) -->
-<div id="slide-box">
-    <div id="slide">
-        <div style="background-image: url(/assets/book.jpg)"></div>
-        <div style="background-image: url(/assets/home.jpg)"></div>
-        <div style="background-image: url(/assets/home1.jpg)"></div>
-        <div style="background-image: url(/assets/home2.jpg)"></div>
-        <div style="background-image: url(/assets/home3.jpg)"></div>
-    </div>
+<div class="row">
+	<div class="col-xs-2">
+		<!-- 会員情報 -->
+		<%= render 'users/user-info', user:@user %>
+	</div>
+
+	<div class="col-xs-8">
+		<!-- スライドショー(仮) -->
+		<div id="slide-box">
+		    <div id="slide">
+		        <div style="background-image: url(/assets/book.jpg)"></div>
+		        <div style="background-image: url(/assets/home.jpg)"></div>
+		        <div style="background-image: url(/assets/home1.jpg)"></div>
+		        <div style="background-image: url(/assets/home2.jpg)"></div>
+		        <div style="background-image: url(/assets/home3.jpg)"></div>
+		    </div>
+		</div>
+		<%= render 'posts/posts', posts:current_user.posts %>
+	</div>
 </div>
 
-<%= render 'posts/posts', posts:current_user.posts %>
+
+
+
 
 <script src="/assets/skippr.min.js"></script>
 <script src="/assets/slide.js"></script>

@@ -1,42 +1,43 @@
-
 <div class="auto">
 	<div class="height">
-		<div class="user">
-			<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100', class: 'user-image' %>
-			<%= current_user.nickname %>
-		</div>
-
-		<!-- 投稿一覧表示 -->
-		<%= render 'posts/posts', posts:@posts %>
-
-		<!-- 投稿フォーム -->
-		<div class="black-back" id="post_form">
-			<div class="new row">
-				<i class="fas fa-times" id="close"></i>
-				<%= form_for((@post), html: { class: "col-xs-offset-1" }) do |f| %>
-					<h2>投稿フォーム</h2>
-					<div class="field">
-						<h4>タイトル</h4>
-						<%= f.text_field :title, class: '__title' %>
-					</div>
-					<div class="field">
-						<h4>写真</h4>
-						<%= f.attachment_field :images_images, multiple: true %>
-					</div>
-					<div class="field">
-						<h4>コメント</h4>
-						<%= f.text_area :article, class: '__article' %>
-					</div>
-					<div class="actions">
-						 <%= f.submit '送信', class: 'btn btn-success' %>
-					</div>
-				<% end %>
+		<div class="row">
+			<div class="col-xs-2">
+				<%= render 'users/user-info', user:current_user %>
 			</div>
-		</div>
+			<div class="col-xs-8">
+				<!-- 投稿一覧表示 -->
+				<%= render 'posts/posts', posts:@posts %>
 
-		<!-- フォームを開くボタン -->
-		<div class="open-form">
-			<i class="fas fa-camera-retro __icon" id="post_new"></i>
+				<!-- 投稿フォーム -->
+				<div class="black-back" id="post_form">
+					<div class="new row">
+						<i class="fas fa-times" id="close"></i>
+						<%= form_for((@post), html: { class: "col-xs-offset-1" }) do |f| %>
+							<h2>投稿フォーム</h2>
+							<div class="field">
+								<h4>タイトル</h4>
+								<%= f.text_field :title, class: '__title' %>
+							</div>
+							<div class="field">
+								<h4>写真</h4>
+								<%= f.attachment_field :images_images, multiple: true %>
+							</div>
+							<div class="field">
+								<h4>コメント</h4>
+								<%= f.text_area :article, class: '__article' %>
+							</div>
+							<div class="actions">
+								 <%= f.submit '送信', class: 'btn btn-success' %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+
+				<!-- フォームを開くボタン -->
+				<div class="open-form">
+					<i class="fas fa-camera-retro __icon" id="post_new"></i>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

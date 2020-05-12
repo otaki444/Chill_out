@@ -1,23 +1,39 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="row">
+	<div class="col-xs-2">
+		<!-- 会員情報 -->
+		<%= render 'users/user-info', user:@post.user %>
+	</div>
 
-
-			<h3><%= @post.title %></h3>
-			<div class="__images">
+	<!-- 投稿詳細 -->
+	<div class="col-xs-8">
+		<h3><%= @post.title %></h3>
+		<div id="slide-post">
+		    <div id="slide">
 				<% if @post.images.present? %>
 				  <% @post.images.each do |image| %>
-				    <%= attachment_image_tag image, :image, :fill, 150, 150, class: '--image' %>
+				    <%= attachment_image_tag image, :image, class: '--image' %>
 				  <% end %>
 				<% else %>
-				    <%= image_tag 'no_image.jpeg', size: '250x250', class: 'no_image' %>
+				    <%= image_tag 'no_image.jpeg', class: 'no_image' %>
 				<% end %>
-			</div>
+		    </div>
+		</div>
+		<p><%= @post.article %></p>
+		<% if @post.user_id == current_user.id %>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-comment"></i>
+		<% else %>
+			<i class="fas fa-heart"></i>
+			<i class="fas fa-comment"></i>
+		<% end %>
+		<% if @post.user == current_user %>
+			<%= link_to "編集", edit_post_path, class: "btn btn-success" %>
+			<%= link_to "削除", post_path, method: :delete, class: "btn btn-danger", data: { confirm: "本当に消しますか?" } %>
+		<% end %>
+	</div>
+</div>
 
-			<p><%= @post.article %></p>
-			<% if @post.user_id == current_user.id %>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-comment"></i>
-			<% else %>
-				<i class="fas fa-heart"></i>
-				<i class="fas fa-comment"></i>
-			<% end %>
+
+
+<script src="/assets/skippr.min.js"></script>
+<script src="/assets/slide.js"></script>
