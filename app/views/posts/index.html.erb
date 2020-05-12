@@ -1,35 +1,27 @@
 
 <div class="auto">
 	<div class="height">
-		<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100', class: 'user-image' %>
-
-	<%= @posts.each do |post| %>
-		<div class="post">
-			<%= post.title %>
-			<%= post.article %>
-			<% if post.images.present? %>
-			  <% post.images.each do |image| %>
-			    <%= attachment_image_tag image, :image, :fill, 100, 100 %>
-			  <% end %>
-			  <% else %>
-			    <%= image_tag 'no_image.jpeg', size: '100x100' %>
-			<% end %>
+		<div class="user">
+			<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100', class: 'user-image' %>
+			<%= current_user.nickname %>
 		</div>
-	<% end %>
 
+		<!-- 投稿一覧表示 -->
+		<%= render 'posts/posts', posts:@posts %>
 
-		<div class="new row" id="post_form">
-
+		<!-- 投稿フォーム -->
+		<div class="black-back" id="post_form">
+			<div class="new row">
 				<i class="fas fa-times" id="close"></i>
 				<%= form_for((@post), html: { class: "col-xs-offset-1" }) do |f| %>
-					<h2>投稿しましょう！</h2>
-					<div class="field">
-						<h4>写真</h4>
-						<%= f.attachment_field :images_images, multiple: true %>
-					</div>
+					<h2>投稿フォーム</h2>
 					<div class="field">
 						<h4>タイトル</h4>
 						<%= f.text_field :title, class: '__title' %>
+					</div>
+					<div class="field">
+						<h4>写真</h4>
+						<%= f.attachment_field :images_images, multiple: true %>
 					</div>
 					<div class="field">
 						<h4>コメント</h4>
@@ -39,12 +31,14 @@
 						 <%= f.submit '送信', class: 'btn btn-success' %>
 					</div>
 				<% end %>
-
+			</div>
 		</div>
 
+		<!-- フォームを開くボタン -->
 		<div class="open-form">
 			<i class="fas fa-camera-retro __icon" id="post_new"></i>
 		</div>
 	</div>
 </div>
+
 <script src="/assets/post_new.js"></script>

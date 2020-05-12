@@ -1,2 +1,23 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
+
+
+			<h3><%= @post.title %></h3>
+			<div class="__images">
+				<% if @post.images.present? %>
+				  <% @post.images.each do |image| %>
+				    <%= attachment_image_tag image, :image, :fill, 150, 150, class: '--image' %>
+				  <% end %>
+				<% else %>
+				    <%= image_tag 'no_image.jpeg', size: '250x250', class: 'no_image' %>
+				<% end %>
+			</div>
+
+			<p><%= @post.article %></p>
+			<% if @post.user_id == current_user.id %>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-comment"></i>
+			<% else %>
+				<i class="fas fa-heart"></i>
+				<i class="fas fa-comment"></i>
+			<% end %>
