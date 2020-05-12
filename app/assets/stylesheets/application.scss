@@ -35,7 +35,7 @@ header {
 	box-shadow: 0 3px 10px 3px rgba(0,0,0,0.4);
 	position: sticky;
 	top: 0;
-	z-index: 1;
+	z-index: 100;
 }
 
 .navbar-nav > li > a {
@@ -70,6 +70,60 @@ header {
 	}
 }
 
+/* 会員詳細&投稿関連 */
+.user-image {
+	border-radius: 50%;
+}
+.auto {
+	width: 100%;
+	background: linear-gradient(to right, #e3e3e3, #fff, #e3e3e3);
+
+	& .height {
+		width: 100%;
+		height: 5000px;
+	}
+}
+
+.posts {
+	display: flex;
+	flex-flow: row wrap;
+
+	& .post {
+		width: 400px;
+		height: 550px;
+		margin: 20px auto;
+		padding: 15px;
+		border: 3px solid #3ce6be;
+		background-color: #fff;
+		border-radius: 15px;
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+		position: relative;
+		transition: all 0.5s ease 0s;
+		text-decoration: none;
+		color: black;
+
+		& .__images {
+			height: 350px;
+		}
+
+		& .--image {
+			border-radius: 15px;
+			margin: 5px 5px 5px 15px;
+
+		}
+
+		& .no_image {
+			display: block;
+			margin: 0 auto;
+		}
+
+		&:hover {
+			box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.7);
+			transform: translateY(-0.2em);
+		}
+	}
+}
+
 /* フッター */
 footer {
 	width: 100%;
@@ -88,9 +142,20 @@ footer {
 	}
 }
 
+/* 会員情報 */
+.user-info {
+	width: 100%;
+	background-color: white;
+	border-radius: 15px;
+	margin-top: 20px;
+	box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 新規登録 */
 .need {
 	color: red;
 }
+
 /* row初期設定変更 */
 .row {
 	margin-right: 0;

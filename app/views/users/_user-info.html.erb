@@ -1,0 +1,27 @@
+<table class="table user-info">
+	<thead>
+		<tr>
+			<th>
+				<%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'70x70', class: 'user-image' %>
+				<%= user.nickname %>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>投稿</td>
+		</tr>
+		<tr>
+			<td>フォロー</td>
+		</tr>
+		<tr>
+			<td>フォロワー</td>
+		</tr>
+
+		<% if user.id == current_user.id %>
+		<tr>
+			<td>お気に入り</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
