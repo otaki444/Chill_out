@@ -25,11 +25,11 @@ Rails.application.routes.draw do
     get 'follow', to: 'relationships#follow'
     get 'follower', to: 'relationships#follower'
     resource :relationships, only: [:create, :destroy]
-    resource :favorites, only: [:index, :create, :destroy]
+    resource :favorites, only: [:index, :create, :destroy] #お気に入り
   end
 
   resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
-    resource :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy] #いいね
     resources :comments, only: [:create, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
