@@ -1,29 +1,33 @@
 <div class="posts">
 	<% posts.each do |post| %>
-		<%= link_to post_path(post), class: 'post' do %>
+	<section class="__post">
+		<%= link_to post_path(post), class: '-link' do %>
 			<h3>
-				<span>
-					<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %>
-				</span>
+				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %>
 				<%= post.title %>
 			</h3>
-			<div class="__images">
+			<div class="--images">
 				<% if post.images.present? %>
 				  <% post.images.first(4).each do |image| %>
-				    <%= attachment_image_tag image, :image, :fill, 150, 150, class: '--image' %>
+				    <%= attachment_image_tag image, :image, :fill, 150, 150, class: '-image' %>
 				  <% end %>
 				<% else %>
 				    <%= image_tag 'no_image.jpeg', size: '250x250', class: 'no_image' %>
 				<% end %>
 			</div>
-
 			<p><%= post.article %></p>
-			<% if post.user_id == current_user.id %>
-				<i class="fas fa-comment"></i>
-			<% else %>
-				<i class="fas fa-heart"></i>
-				<i class="fas fa-comment"></i>
-			<% end %>
 		<% end %>
+
+		<% if post.user_id == current_user.id %>
+			<i class="fas fa-comment"></i>
+		<% else %>
+
+		<div id='like-<%= post.id %>'>
+			<%= render partial: 'likes/like', locals: { post: post} %>
+		</div>
+			<i class="fas fa-comment"></i>
+		<% end %>
+	</section>
 	<% end %>
 </div>
+

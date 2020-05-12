@@ -12,6 +12,7 @@ class User < ApplicationRecord
 	has_many :follower, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
 	has_many :followers, through: :follower
 	has_many :images, dependent: :destroy
+	has_many :likes, dependent: :destroy
 
 	attachment :profile_image
 	validates :name, presence: true
