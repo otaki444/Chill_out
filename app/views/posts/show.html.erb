@@ -33,19 +33,18 @@
 			<%= link_to "削除", post_path, method: :delete, class: "btn btn-danger", data: { confirm: "本当に消しますか?" } %>
 		<% end %>
 
-		<% @post.comments.each do |comment| %>
-			<%= comment.user.nickname %>
-			<%= comment.created_at.strftime('%Y/%m/%d') %>
-			<%= comment.user.name %>
-		<% end %>
-		<%= form_for [@post, @comment] do |f| %>
-			<%= f.text_area :comment, placeholder: "コメントをここに" %>
-		    <%= f.submit "コメントする" %>
-		<% end %>
+		<!-- コメント表示 -->
+		<div id="comment-<%= @comment.id %>">
+			<%= render partial: 'comments/comment', locals: { post:@post} %>
+		</div>
+		<!-- コメントフォーム -->
+		<div id="comment-form">
+			<%= render partial: 'comments/form', locals: { post:@post, comment:@comment} %>
+		</div>
 	</div>
 </div>
 
-
-
 <script src="/assets/skippr.min.js"></script>
 <script src="/assets/slide.js"></script>
+
+
