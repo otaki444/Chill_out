@@ -19,15 +19,15 @@
 		<% end %>
 
 		<% if post.user_id == current_user.id %>
-			<i class="fas fa-comment"></i>
+			<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
 		<% else %>
-
-		<div id='like-<%= post.id %>'>
-			<%= render partial: 'likes/like', locals: { post: post} %>
-		</div>
-			<i class="fas fa-comment"></i>
+			<span id='like-<%= post.id %>'>
+				<%= render partial: 'likes/like', locals: { post: post} %>
+			</span>
+			<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
 		<% end %>
 	</section>
 	<% end %>
+	<%= paginate posts %>
 </div>
 
