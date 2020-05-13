@@ -188,3 +188,21 @@ footer {
 		text-decoration: none;
 	}
 }
+
+/* ページャ */
+.pagination .active a {
+	background-color: #3ce6be;
+    border-color: #3ce6be;
+
+    &:hover {
+		background-color: #3ce6be;
+	    border-color: #3ce6be;
+    }
+}
+.pagination li a {
+	color: #3ce6be;
+
+	&:hover {
+		color: #3ce6be;
+	}
+}

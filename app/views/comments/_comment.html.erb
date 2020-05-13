@@ -1,0 +1,10 @@
+<% post.comments.each do |comment| %>
+	<div class="comment" id="comment-<%= comment.id %>">
+		<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
+		<%= comment.user.nickname %>
+		<%= comment.comment %>
+		<% if comment.user == current_user %>
+			<%= link_to "削除", post_comment_path(comment.id, comment.post.id), method: :delete, remote: true, class: "btn btn-danger" %>
+		<% end %>
+	</div>
+<% end %>
