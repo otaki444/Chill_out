@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     @post = Post.new
     @post.images.build
   end
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-        redirect_to posts_path
+        redirect_to post_path(@post)
     else
       render :index
     end
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

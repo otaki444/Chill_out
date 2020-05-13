@@ -166,3 +166,25 @@ footer {
 	margin-right: 0;
 	margin-left: 0;
 }
+/* いいね */
+.like {
+	color: #ff73ce;
+	text-decoration: none;
+	font-size: 20px;
+
+	&:hover {
+		color: #ff73ce;
+		text-decoration: none;
+	}
+}
+/* コメント */
+.fa-comment {
+	color: #5adb5c;
+	text-decoration: none;
+	font-size: 20px;
+
+	&:hover {
+		color: #5adb5c;
+		text-decoration: none;
+	}
+}
