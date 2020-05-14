@@ -70,11 +70,15 @@ gem 'bootstrap-sass' , '~> 3.4.1'
 gem 'jquery-rails'
 # 検索
 gem 'ransack'
-# 管理
-gem 'dotenv-rails'
 # ページネーション
 gem 'kaminari','~> 1.1.1'
 # 日本語化
 gem 'rails-i18n'
 # デバッグ
 gem 'pry-rails'
+# 管理
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
