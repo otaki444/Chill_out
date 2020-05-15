@@ -1,6 +1,7 @@
 <% post.comments.each do |comment| %>
 	<div class="comment" id="comment-<%= comment.id %>">
 		<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
+		<%= attachment_image_tag comment.user, :profile_image, :fill, 80, 80, class: '-image' %>
 		<%= comment.user.nickname %>
 		<%= comment.comment %>
 		<% if comment.user == current_user %>

@@ -22,7 +22,7 @@
 				</div>
 				<div class="field">
 					<h4>写真</h4>
-					<%= f.attachment_field :images_images, multiple: true %>
+					<%= f.attachment_field :post_images_images, multiple: true,  name: "images_attributes[0][image][]" %>
 				</div>
 				<div class="field">
 					<h4>コメント</h4>

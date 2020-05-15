@@ -7,9 +7,9 @@
 				<%= post.title %>
 			</h3>
 			<div class="--images">
-				<% if post.images.present? %>
-				  <% post.images.first(4).each do |image| %>
-				    <%= attachment_image_tag image, :image, :fill, 150, 150, class: '-image' %>
+				<% if post.post_images.present? %>
+				  <% post.post_images.first(4).each do |image| %>
+				    <%= attachment_image_tag image, :image, :fill, 150, 150, format: "jpg", class: '-image' %>
 				  <% end %>
 				<% else %>
 				    <%= image_tag 'no_image.jpeg', size: '250x250', class: 'no_image' %>
