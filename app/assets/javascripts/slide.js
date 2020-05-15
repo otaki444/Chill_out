@@ -2,7 +2,7 @@ $("#slide").skippr({
     // スライドショーの変化（"fade" or "slide"）
     transition : 'fade',
     // 変化にかかる時間（ミリ秒）
-    speed : 2500,
+    speed : 1500,
     // easingの種類
     easing : 'easeOutQuart',
     // ナビゲーションの形（"block" or "bubble"）

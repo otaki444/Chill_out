@@ -4,6 +4,7 @@
 		<%= link_to post_path(post), class: '-link' do %>
 			<h3>
 				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %>
+				<%= post.user.nickname %>
 				<%= post.title %>
 			</h3>
 			<div class="--images">
@@ -20,9 +21,12 @@
 
 		<% if post.user_id == current_user.id %>
 			<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
+			<span id='favorite-<%= post.id %>'>
+				
+			</span>
 		<% else %>
 			<span id='like-<%= post.id %>'>
-				<%= render partial: 'likes/like', locals: { post: post} %>
+				
 			</span>
 			<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
 		<% end %>

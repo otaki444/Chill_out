@@ -1,0 +1,43 @@
+<% if @model == "user" %>
+  <h3>ユーザー検索</h3>
+    <div class="col-xs-6 col-xs-offset-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ニックネーム</th>
+            <th>自己紹介</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @records.each do |user| %>
+            <tr>
+              <td>
+                <%= link_to user_path(user.id) do %>
+                  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100' %>
+                <% end %>
+              </td>
+              <td><%= user.nickname %></td>
+              <td><%= user.introduction %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+<% end %>
+
+<% if @model == "post" %>
+  <h3>投稿検索</h3>
+  <section  class="auto">
+    <div class="row">
+      <div class="col-xs-2">
+        <!-- 会員情報 -->
+        <%= render 'users/user-info', user:current_user %>
+      </div>
+      <div class="col-xs-8">
+        <!-- 投稿一覧表示 -->
+        <%= render 'posts/posts', posts:@posts %>
+      </div>
+    </div>
+  </section>
+<% end %>

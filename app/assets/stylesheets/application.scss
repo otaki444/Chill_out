@@ -69,6 +69,18 @@ header {
 		color: white;
 	}
 }
+.header-nav {
+	text-align: center;
+}
+.searchs {
+	display: inline-block;
+	text-align: center;
+	margin-top: 25px;
+	color: black;
+}
+#search_content {
+	width: 250px;
+}
 
 /* 会員詳細&投稿関連 */
 .user-image {

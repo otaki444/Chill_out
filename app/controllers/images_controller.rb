@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		@posts = Post.all
+		@images = Image.all
 	end
 end
