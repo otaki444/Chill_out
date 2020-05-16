@@ -20,7 +20,9 @@
 		</div>
 		<p><%= @post.article %></p>
 		<% if @post.user_id == current_user.id %>
-			<i class="fas fa-star"></i>
+			<span id='favorite-<%= @post.id %>'>
+				<%= render partial: 'favorites/favorite', locals: { post: @post} %>
+			</span>
 			<i class="fas fa-comment"></i>
 		<% else %>
 			<span id='like-<%= @post.id %>'>

@@ -5,14 +5,16 @@
 	</div>
 
 	<div class="col-xs-8">
-		<!-- スライドショー(仮) -->
+		<!-- スライドショー -->
 		<div id="slide-box">
 		    <div id="slide">
-		        <div style="background-image: url(/assets/book.jpg)"></div>
-		        <div style="background-image: url(/assets/home.jpg)"></div>
-		        <div style="background-image: url(/assets/home1.jpg)"></div>
-		        <div style="background-image: url(/assets/home2.jpg)"></div>
-		        <div style="background-image: url(/assets/home3.jpg)"></div>
+				<% @user_posts.each do |post| %>
+					<% if post.favorited_by?(current_user) %>
+						<% post.post_images.each do |image| %>
+							<%= attachment_image_tag image, :image %>
+						<% end %>
+					<% end %>
+				<% end %>
 		    </div>
 		</div>
 		<!-- 会員投稿一覧 -->

@@ -161,6 +161,19 @@ footer {
 	border-radius: 15px;
 	margin-top: 20px;
 	box-shadow: 0 5px 5px 2px rgba(0, 0, 0, 0.3);
+	position: fixed;
+	top:100px;
+	left: 20px;
+	width: 210px;
+
+	& .user-image {
+		transition: all 0.5s;
+
+		&:hover {
+			box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.3);
+			transform: translateY(-0.1em);
+		}
+	}
 }
 
 /* 新規登録 */
@@ -181,7 +194,7 @@ footer {
 
 	&:hover {
 		color: #ff73ce;
-		text-decoration: none;
+
 	}
 }
 /* コメント */
@@ -192,7 +205,16 @@ footer {
 
 	&:hover {
 		color: #5adb5c;
-		text-decoration: none;
+	}
+}
+/* お気に入り */
+.favorite {
+	color: #e6db4e;
+	text-decoration: none;
+	font-size: 20px;
+
+	&:hover {
+		color: #e6db4e;
 	}
 }
 
@@ -212,4 +234,7 @@ footer {
 	&:hover {
 		color: #3ce6be;
 	}
+}
+a:hover {
+	text-decoration: none;
 }
