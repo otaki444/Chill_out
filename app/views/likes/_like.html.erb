@@ -1,4 +1,4 @@
-<% if post.favorited_by?(current_user) %>
+<% if post.liked_by?(current_user) %>
 	<span>
 	    <%= link_to post_likes_path(post), method: :delete, remote: true, class: 'like' do %>
 		    <i class="fa fa-heart"></i>

@@ -1,5 +1,12 @@
 <h1>imagessssssses#index</h1>
 <p>Find me in app/views/favorites/index.html.erb</p>
 
+<% @images.each do |image| %>
+	<div class="favorite-images">
+		<% if image.user_id == current_user.id %>
+			<%= attachment_image_tag image, :image, :fill, 150, 150, format: "jpg", class: '-image' %>
+		<% end %>
+	</div>
+<% end %>
 
 

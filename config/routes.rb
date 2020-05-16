@@ -20,17 +20,18 @@ Rails.application.routes.draw do
   # ECサイト
   root to: 'homes#home'
   get '/about', to: 'homes#about'
+  get "/search" => "search#search"
 
   resources :users, only: [:show, :edit, :update, :destroy] do
     get 'follow', to: 'relationships#follow'
     get 'follower', to: 'relationships#follower'
     resource :relationships, only: [:create, :destroy]
-    resource :favorites, only: [:create, :destroy] #お気に入り
     resources :images, only: [:index]
   end
 
   resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
     resource :likes, only: [:create, :destroy] #いいね
+    resource :favorites, only: [:create, :destroy] #お気に入り
     resources :comments, only: [:create, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

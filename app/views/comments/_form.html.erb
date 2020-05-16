@@ -1,6 +1,6 @@
 <%= form_with model: [post, comment], remote: true do |f| %>
-	<%= f.text_area :comment, class:"form-control", rows:"4", placeholder: "コメントをここに" %>
-      <%= f.button :type => "submit", style: 'border-style: none;', class:"form-control" do %>
+	<%= f.text_area :comment, class: "form-control", rows:"4", placeholder: "コメントをここに" %>
+      <%= f.button :type => "submit", style: 'border-style: none;', class: "form-control" do %>
 	    <i class="fas fa-paper-plane"></i>
 	  <% end %>
 <% end %>

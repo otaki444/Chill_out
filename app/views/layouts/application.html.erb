@@ -13,12 +13,26 @@
 
   <body>
     <header>
-      <nav>
+      <!-- タイトル -->
+      <nav class="header-nav">
         <% if user_signed_in? %>
-          <%= link_to 'Chill out', posts_path, class: 'header--title' %>
+          <%= link_to 'Chill out', posts_path, class: 'header--title pull-left' %>
         <% else %>
-          <%= link_to 'Chill out', root_path, class: 'header--title' %>
+          <%= link_to 'Chill out', root_path, class: 'header--title pull-left' %>
         <% end %>
+
+        <!-- 検索機能 -->
+        <% if user_signed_in? %>
+          <div class="searchs">
+            <%= form_tag(search_path, method: :get) do %>
+              <%= text_field_tag 'search[content]' %>
+              <%= select_tag 'search[model]', options_for_select({ 'ニックネーム' => 'user', '投稿' => 'post'}) %>
+              <%= submit_tag '検索', class: 'btn btn-success' %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <!-- 遷移リンク -->
         <ul class="nav navbar-nav pull-right">
           <% if user_signed_in? %>
             <li><%= link_to 'マイページ', user_path(current_user) %></li>

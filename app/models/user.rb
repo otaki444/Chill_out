@@ -5,14 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 	has_many :posts, dependent: :destroy
-	has_many :favorites, dependent: :destroy
 	has_many :comments, dependent: :destroy
-	has_many :follow, foreign_key: "follow_id", class_name: "Relationship", dependent: :destroy
+	has_many :follow, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
 	has_many :follows, through: :follow
-	has_many :follower, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+	has_many :follower, foreign_key: "follow_id", class_name: "Relationship", dependent: :destroy
 	has_many :followers, through: :follower
 	has_many :images, dependent: :destroy
 	has_many :likes, dependent: :destroy
+	has_many :favorites, dependent: :destroy
 
 	attachment :profile_image
 	validates :name, presence: true
@@ -22,10 +22,10 @@ class User < ApplicationRecord
 	validates :introduction,    length: { maximum: 50 }
 	validates :one_word,    length: { maximum: 20 }
 
-	def follow?(user)
+	def following?(user)
 	follow.find_by(follow_id: user)
 	end
-	def follow(user_id)
+	def follow_user(user_id)
 	follow.create(follow_id: user_id)
 	end
 	def unfollow(user_id)
