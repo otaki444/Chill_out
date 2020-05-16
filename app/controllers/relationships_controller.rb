@@ -11,7 +11,7 @@ class RelationshipsController < ApplicationController
   end
 
   def create
-  	current_user.follow(params[:user_id])
+  	current_user.follow_user(params[:user_id])
     redirect_back(fallback_location: root_url)
   end
 
