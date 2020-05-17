@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'messages/create'
+  get 'rooms/create'
+  get 'rooms/show'
 	devise_for :users, controllers: {
 	  sessions:      'users/sessions',
 	  passwords:     'users/passwords',
@@ -28,6 +31,9 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     resources :images, only: [:index]
   end
+
+  resources :messages, only: [:create] #DM機能
+  resources :rooms, only: [:create,:show]
 
   resources :posts, only: [:index, :create, :show, :edit, :update, :destroy] do
     resource :likes, only: [:create, :destroy] #いいね

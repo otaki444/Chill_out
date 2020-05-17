@@ -1,13 +1,13 @@
 class RelationshipsController < ApplicationController
 	before_action :authenticate_user!
   def follow
-  	user = User.find(params[:user_id])
-  	@follows = user.follows
+  	@user = User.find(params[:user_id])
+  	@follows = @user.follows
   end
 
   def follower
-  	user = User.find(params[:user_id])
-    @followers = user.followers
+  	@user = User.find(params[:user_id])
+    @followers = @user.followers
   end
 
   def create

@@ -89,7 +89,7 @@ header {
 }
 .auto {
 	width: 100%;
-	background: linear-gradient(to right, #e8d8f2, #fcebf8, #e8d8f2);
+	background: linear-gradient(to right, #fff, #e8d8f2, #fff);
 }
 
 .posts {
@@ -165,6 +165,10 @@ footer {
 	top:100px;
 	left: 20px;
 	width: 210px;
+
+	& .--right {
+		margin-top: 20px;
+	}
 
 	& .user-image {
 		transition: all 0.5s;

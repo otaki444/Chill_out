@@ -1,2 +1,37 @@
-<h1>Relationships#follower</h1>
-<p>Find me in app/views/relationships/follower.html.erb</p>
+<div class="row">
+	<div class="col-xs-8 col-xs-offset-2">
+		<h2>フォロワー</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>ニックネーム</th>
+					<th>ひとこと</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @followers.each do |user| %>
+				<tr>
+					<td><%= attachment_image_tag user, :profile_image, fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %></td>
+					<td><%= user.nickname %></td>
+					<td><%= user.one_word %></td>
+					<td>フォロー数: <%= user.follows.count %></td>
+					<td>フォロワー数: <%= user.followers.count %></td>
+					<td>
+						<% if current_user != user %>
+							<% if current_user.following?(user) %>
+								<%= link_to '解除', user_relationships_path(user.id), method: :delete %>
+							<% else %>
+								<%= link_to 'フォロー', user_relationships_path(user.id), method: :POST %>
+							<% end %>
+						<% end %>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -4,7 +4,7 @@
 
 /* お気に入りスライド */
 #slide-box {
-	height: 500px;
+	height: 650px;
 	border: 5px solid yellow;
 	margin-top: 10px;
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
@@ -13,4 +13,8 @@
 	& #slide {
 	border-radius: 15px;
 	}
+}
+
+.user-show {
+	background: linear-gradient(to right, #62a7e3, #62e3ba, #c9e362);
 }
