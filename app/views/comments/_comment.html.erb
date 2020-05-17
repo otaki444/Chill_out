@@ -1,11 +1,15 @@
 <% post.comments.each do |comment| %>
-	<div class="comment" id="comment-<%= comment.id %>">
-		<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
-		<%= attachment_image_tag comment.user, :profile_image, :fill, 80, 80, class: '-image' %>
-		<%= comment.user.nickname %>
-		<%= comment.comment %>
-		<% if comment.user == current_user %>
-			<%= link_to "削除", post_comment_path(comment.id, comment.post.id), method: :delete, remote: true, class: "btn btn-danger" %>
-		<% end %>
+	<div id="comment-<%= comment.id %>" class="comment">
+		<span>
+			<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
+		</span><br>
+		<%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, class: '-image' %>
+		<span class="__info">
+			<%= comment.user.nickname %>
+			<%= comment.comment %>
+			<% if comment.user == current_user %>
+				<%= link_to "削除", post_comment_path(comment.id, comment.post.id), method: :delete, remote: true, class: "btn btn-danger" %>
+			<% end %>
+		</span>
 	</div>
 <% end %>

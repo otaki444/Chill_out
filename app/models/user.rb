@@ -13,6 +13,8 @@ class User < ApplicationRecord
 	has_many :images, dependent: :destroy
 	has_many :likes, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+	has_many :messages, dependent: :destroy
+  	has_many :entries, dependent: :destroy
 
 	attachment :profile_image
 	validates :name, presence: true
