@@ -18,6 +18,9 @@
 				<% end %>
 		    </div>
 		</div>
+
+		<div><%= render 'posts/tag_list', tag_list: @post.tag_list %></div>
+
 		<p><%= @post.article %></p>
 		<% if @post.user_id == current_user.id %>
 			<span id='favorite-<%= @post.id %>'>

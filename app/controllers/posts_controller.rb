@@ -2,12 +2,16 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
     @posts = Post.page(params[:page]).reverse_order
+    @posts_tag = @posts
+    if params[:tag_name]
+      @posts_tag = Post.tagged_with("#{params[:tag_name]}")
+    end
     @post = Post.new
     @post.post_images.build
   end
 
   def create
-    @post = Post.new(title: params[:post][:title], article: params[:post][:article])
+    @post = Post.new(title: params[:post][:title], article: params[:post][:article], tag_list: params[:post][:tag_list])
     @post.user_id = current_user.id
     if @post.save
        @post.add_images(params[:images_attributes][:"0"][:image])
@@ -48,6 +52,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :article, {post_images_images: []})
+    params.require(:post).permit(:title, :article, :tag_list, {post_images_images: []})
   end
 end

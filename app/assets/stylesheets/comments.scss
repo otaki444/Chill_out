@@ -1,8 +1,10 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .comment {
-	margin: 20px 0;
+	margin: 20px auto;
+	max-width: 700px;
 }
 .__info {
 	padding: 10px;
@@ -11,17 +13,17 @@
 	color: white;
 	font-weight: bold;
 	font-size: 20px;
-
-	& .btn-danger {
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
-    border-radius: 20px;
-    line-height: 10px;
-}
-
 }
 .-image {
 	border-radius: 50%;
-	font-size: 20px;
+}
+#comment-form {
+	max-width: 700px;
+	margin: 0 auto;
+
+	& button {
+		color: #fff;
+		background-color: blue;
+		margin: 10px 0 50px 0;
+	}
 }

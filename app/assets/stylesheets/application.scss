@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-	@import "bootstrap-sprockets";
+
 	@import "bootstrap";
 
 body {
@@ -219,15 +219,60 @@ footer {
 	}
 }
 
+/* タグ検索 */
+.badge {
+	background-color: #5b41e8;
+	padding: 5px 10px;
+}
+.tags {
+	position: fixed;
+	top: 120px;
+	right: 20px;
+	width: 230px;
+
+	& .__title {
+		color: #62e3c5;
+		font-weight: bold;
+	}
+
+	& .__tag {
+		margin-top: 5px;
+	}
+}
+
 /* 新規登録 */
 .need {
 	color: red;
 }
 
-/* row初期設定変更 */
+/* 初期設定変更 */
 .row {
 	margin-right: 0;
 	margin-left: 0;
+}
+
+.btn-success {
+	color: #5cb85c;
+	background-color: #fff;
+	transition: all 0.3s;
+
+	&:hover {
+		color: #fff;
+		background-color: #5cb85c;
+		border-color: #5cb85c;
+	}
+}
+
+.btn-danger {
+	color: #d9534f;
+	background-color: #fff;
+	transition: all 0.3s;
+
+	&:hover {
+		color: #fff;
+		background-color: #d9534f;
+		border-color: #d9534f;
+	}
 }
 
 /* いいね */
