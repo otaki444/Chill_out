@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.page(params[:page]).reverse_order
-    @posts_tag = @posts
+
     if params[:tag_name]
-      @posts_tag = Post.tagged_with("#{params[:tag_name]}")
+      @posts = Post.page(params[:page]).reverse_order.tagged_with("#{params[:tag_name]}")
+    else
+      @posts = Post.page(params[:page]).reverse_order
     end
     @post = Post.new
     @post.post_images.build
