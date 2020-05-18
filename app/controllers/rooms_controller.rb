@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
     @room = Room.create
     @entry_active = Entry.create(room_id: @room.id, user_id: current_user.id)
     @entry_passive = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))
-    redirect_to room_path(@room.id)
+    redirect_to room_path(@room.id), notice: 'メッセージを送ってみましょう！'
   end
 
   def show

@@ -1,2 +1,49 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="row user-edit">
+  <div class="col-md-6 col-md-offset-4">
+    <%= form_for(@user) do |f| %>
+
+      <div class="field">
+        <span class="need">※</span>
+        <%= f.label :name, 'お名前' %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <span class="need">※</span>
+        <%= f.label :name_kana, 'お名前 (フリガナ)' %><br />
+        <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <span class="need">※</span>
+        <%= f.label :nickname, 'ニックネーム' %><br />
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :profile_image_id, 'プロフィール画像' %><br />
+        <%= f.attachment_field :profile_image, autofocus: true, autocomplete: "profile_image_id" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :introduction, '自己紹介 (50文字以内)' %><br />
+        <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :one_word, '一言メッセージ (20文字以内)' %><br />
+        <%= f.text_field :one_word, autofocus: true, autocomplete: "one_word", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <span class="need">※</span>
+        <%= f.label :email, 'メールアドレス' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="actions field">
+        <%= f.submit "変更する", class: "btn btn-success form-control" %>
+      </div>
+    <% end %>
+  </div>
+</div>

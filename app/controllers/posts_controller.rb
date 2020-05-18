@@ -11,9 +11,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
        @post.add_images(params[:images_attributes][:"0"][:image])
-       redirect_to post_path(@post), notice: 'Post was successfully created.'
+       redirect_to post_path(@post), notice: '投稿が作成されました！'
     else
       @posts = Post.page(params[:page]).reverse_order
+      flash.now[:alert] = 'タイトルを入力してください'
       render :index
     end
   end
@@ -30,10 +31,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
       if @post.update(post_params)
-        flash[:notice] = "変更しました"
+        flash[:update] = "変更しました"
         redirect_to post_path(@post.id)
       else
         @postfind = Post.find(params[:id])
+        flash.now[:alert] = '変更に失敗しました'
         render :edit
       end
   end

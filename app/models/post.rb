@@ -7,6 +7,9 @@ class Post < ApplicationRecord
 	has_many :post_images, class_name: "Image", dependent: :destroy
 	accepts_attachments_for :post_images, attachment: :image
 
+	validates :title,    length: { maximum: 20 }
+	validates :article,    length: { maximum: 100 }
+
 	def add_images(params)
 		params.each do |image|
 	   	 new_image = Image.new(image: image)

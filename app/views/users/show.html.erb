@@ -24,7 +24,6 @@
 
 	<div class="col-xs-8">
 		<!-- スライドショー -->
-
 		<div id="slide-box">
 		    <div id="slide">
 				<% @slide.each do |post| %>
@@ -36,7 +35,6 @@
 				<% end %>
 		    </div>
 		</div>
-
 
 		<!-- 会員投稿一覧 -->
 		<%= render 'posts/posts', posts:@user_posts %>

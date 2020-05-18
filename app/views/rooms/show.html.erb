@@ -4,6 +4,7 @@
 			<div class="user-name">
 				<strong>
 					<%= link_to user_path(entry.user.id) do %>
+						<%= attachment_image_tag entry.user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'70x70', class: 'user-image' %>
 						<%= entry.user.nickname %>さん
 					<% end %>
 				</strong>
