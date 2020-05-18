@@ -3,12 +3,13 @@ class Post < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 	has_many :comments, dependent: :destroy
-	has_many :tags, dependent: :destroy
 	has_many :post_images, class_name: "Image", dependent: :destroy
 	accepts_attachments_for :post_images, attachment: :image
 
 	validates :title,    length: { maximum: 20 }
 	validates :article,    length: { maximum: 100 }
+
+	acts_as_taggable
 
 	def add_images(params)
 		params.each do |image|
