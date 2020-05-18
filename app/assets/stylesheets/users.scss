@@ -18,3 +18,14 @@
 .user-show {
 	background: linear-gradient(to right, #62a7e3, #62e3ba, #c9e362);
 }
+.user-edit {
+	margin-top: 50px;
+
+	& .field {
+		margin-top: 10px;
+
+		& .form-control {
+			width: 50%;
+		}
+	}
+}

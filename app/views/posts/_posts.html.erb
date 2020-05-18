@@ -4,9 +4,9 @@
 		<%= link_to post_path(post), class: '-link' do %>
 			<h3>
 				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %>
-				<%= post.user.nickname %>
-				<%= post.title %>
+				<span class="--nickname"><%= post.user.nickname %></span><br>
 			</h3>
+			<span class="--title"><%= post.title %></span>
 			<div class="--images">
 				<% if post.post_images.present? %>
 				  <% post.post_images.first(4).each do |image| %>
@@ -16,20 +16,24 @@
 				    <%= image_tag 'no_image.jpeg', size: '250x250', class: 'no_image' %>
 				<% end %>
 			</div>
-			<p><%= post.article %></p>
+			<div class="--article">
+				<span><%= post.article %></span>
+			</div>
 		<% end %>
 
-		<% if post.user_id == current_user.id %>
-			<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
-			<span id='favorite-<%= post.id %>'>
-				<%= render partial: 'favorites/favorite', locals: { post: post} %>
-			</span>
-		<% else %>
-			<span id='like-<%= post.id %>'>
-				<%= render partial: 'likes/like', locals: { post: post} %>
-			</span>
-			<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
-		<% end %>
+		<div class="--icon">
+			<% if post.user_id == current_user.id %>
+				<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
+				<span id='favorite-<%= post.id %>'>
+					<%= render partial: 'favorites/favorite', locals: { post: post} %>
+				</span>
+			<% else %>
+				<span id='like-<%= post.id %>'>
+					<%= render partial: 'likes/like', locals: { post: post} %>
+				</span>
+				<%= link_to " #{post.comments.count}", post_path(post.id), class: 'fas fa-comment' %>
+			<% end %>
+		</div>
 	</section>
 	<% end %>
 	<%= paginate posts %>

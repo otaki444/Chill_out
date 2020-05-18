@@ -11,30 +11,42 @@
 					<%= user.nickname %><br>
 					<% if user.id == current_user.id %>
 						<%= link_to '', edit_user_path(user), class: 'fas fa-user-edit' %>
-					<% else %>
-						<div id="relation-<%= user.id %>">
-							<%= render 'relationships/relation', user:user %>
-						</div>
 					<% end %>
 				</div>
 			</th>
 		</tr>
 	</thead>
 	<tbody>
+		<% if user.id != current_user.id %>
+			<tr>
+				<td><%= render 'relationships/relation', user:user %></td>
+			</tr>
+		<% end %>
+		<% if user.introduction.present? %>
+			<tr>
+				<td class="introduction"><%= user.introduction %></td>
+			</tr>
+		<% end %>
+		<% if user.one_word.present? %>
+			<tr>
+				<td class="">ひとこと　<%= user.one_word %></td>
+			</tr>
+		<% end %>
 		<tr>
-			<td>投稿 <%= user.posts.count %> 件</td>
-		</tr>
-		<tr>
-			<td>フォロー
-				<%= link_to user_follow_path(user.id) do %>
-					<%= user.follows.count %>
+			<td><%= link_to user_path(user) do %>
+					投稿 <%= user.posts.count %> 件
 				<% end %>
 			</td>
 		</tr>
 		<tr>
-			<td>フォロワー
-				<%= link_to user_follower_path(user.id) do %>
-					<%= user.followers.count %>
+			<td><%= link_to user_follow_path(user.id) do %>
+					フォロー <%= user.follows.count %> 人
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td><%= link_to user_follower_path(user.id) do %>
+					フォロワー <%= user.followers.count %> 人
 				<% end %>
 			</td>
 		</tr>

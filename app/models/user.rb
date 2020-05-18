@@ -25,12 +25,12 @@ class User < ApplicationRecord
 	validates :one_word,    length: { maximum: 20 }
 
 	def following?(user)
-	follow.find_by(follow_id: user)
+		follow.find_by(follow_id: user)
 	end
 	def follow_user(user_id)
-	follow.create(follow_id: user_id)
+		follow.create(follow_id: user_id)
 	end
 	def unfollow(user_id)
-	follow.find_by(follow_id: user_id).destroy
+		follow.find_by(follow_id: user_id).destroy
 	end
 end
