@@ -76,6 +76,8 @@ gem 'kaminari','~> 1.1.1'
 gem 'rails-i18n'
 # デバッグ
 gem 'pry-rails'
+# タグ
+gem 'acts-as-taggable-on', '~> 6.0'
 # 管理
 gem 'dotenv-rails'
 

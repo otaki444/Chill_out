@@ -16,6 +16,7 @@
 				    <%= image_tag 'no_image.jpeg', size: '250x250', class: 'no_image' %>
 				<% end %>
 			</div>
+			<%= render 'posts/tag_list', tag_list: post.tag_list %>
 			<div class="--article">
 				<span><%= post.article %></span>
 			</div>
@@ -36,6 +37,6 @@
 		</div>
 	</section>
 	<% end %>
-	<%= paginate posts %>
+
 </div>
 
