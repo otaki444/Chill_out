@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'messages/create'
-  get 'rooms/create'
-  get 'rooms/show'
 	devise_for :users, controllers: {
 	  sessions:      'users/sessions',
 	  passwords:     'users/passwords',
@@ -16,18 +13,21 @@ Rails.application.routes.draw do
 
 	# 管理者側
   namespace :admins do
+    get 'top', to: 'users#top'
     resources :users, only: [:index, :show, :edit, :update]
-    resources :tags, only: [:index, :create, :destroy]
   end
 
   # ECサイト
   root to: 'homes#home'
   get '/about', to: 'homes#about'
-  get "/search" => "search#search"
+  get '/search', to: 'search#search'
+  get '/messages/create', to: 'messages#create'
+  get '/rooms/create', to: 'rooms#create'
+  get '/rooms/show', to: 'rooms#show'
 
   resources :users, only: [:show, :edit, :update, :destroy] do
-    get 'follow', to: 'relationships#follow'
-    get 'follower', to: 'relationships#follower'
+    get '/follow', to: 'relationships#follow'
+    get '/follower', to: 'relationships#follower'
     resource :relationships, only: [:create, :destroy]
     resources :images, only: [:index]
   end

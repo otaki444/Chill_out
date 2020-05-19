@@ -35,13 +35,10 @@
 
         <!-- 遷移リンク -->
         <ul class="nav navbar-nav pull-right">
-          <% if user_signed_in? %>
-            <li><%= link_to 'マイページ', user_path(current_user) %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% if request.fullpath.include? "admin"%>   <%# urlにadminという文字があった場合下記を実行 %>
+            <%= render "layouts/admin_header" %>
           <% else %>
-            <li><%= link_to 'About', about_path %></li>
-            <li><%= link_to ' ログイン', new_user_session_path %></li>
-            <li><%= link_to ' 新規登録', new_user_registration_path %></li>
+            <%= render "layouts/user_header" %>
           <% end %>
         </ul>
       </nav>
