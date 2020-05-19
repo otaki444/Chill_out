@@ -6,7 +6,6 @@
 					<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
 				</span><br>
 				<span class="__info">
-					
 					<%= comment.comment %>
 				</span>
 				<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, class: '-image' %>
