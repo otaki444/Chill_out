@@ -44,6 +44,9 @@
       <div class="actions field">
         <%= f.submit "変更する", class: "btn btn-success form-control" %>
       </div>
+      <div class="actions field">
+        <%= link_to "パスワードの変更はこちら", user_password_edit_path(@user),class: "btn btn-primary form-control" %>
+      </div>
     <% end %>
   </div>
 </div>
