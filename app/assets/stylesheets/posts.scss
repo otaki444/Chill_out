@@ -22,7 +22,7 @@
 	padding: 40px 20px;
 	background-color: #fff;
 	border-radius: 15px;
-	width: 400px;
+	width: 30%;
 	height: 600px;
 
 	& h2 {
@@ -35,6 +35,10 @@
 	& .__article {
 		width: 300px;
 		height: 130px;
+	}
+
+	& .__tag {
+		width: 300px;
 	}
 
 	& .btn {

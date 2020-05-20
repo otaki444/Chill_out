@@ -56,7 +56,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def status
+    @user = current_user
+  end
+
+  def status_update #退会アクション
+    @user = current_user
+    @user.update(come_out: true)
+    reset_session
+    flash[:alert] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private

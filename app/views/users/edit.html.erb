@@ -47,6 +47,9 @@
       <div class="actions field">
         <%= link_to "パスワードの変更はこちら", user_password_edit_path(@user),class: "btn btn-primary form-control" %>
       </div>
+      <div class="actions field">
+        <%= link_to "退会される方はこちら", user_status_path(@user),class: "btn btn-danger form-control" %>
+      </div>
     <% end %>
   </div>
 </div>
