@@ -18,6 +18,8 @@
       <nav class="header-nav">
         <% if user_signed_in? %>
           <%= link_to 'Chill out', posts_path, class: 'header--title pull-left' %>
+        <% elsif admin_signed_in? %>
+          <%= link_to 'Chill out', admins_top_path, class: 'header--title pull-left' %>
         <% else %>
           <%= link_to 'Chill out', root_path, class: 'header--title pull-left' %>
         <% end %>

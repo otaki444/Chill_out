@@ -40,11 +40,40 @@ class UsersController < ApplicationController
       end
   end
 
-  def destroy
+  def password_edit
+    @user = current_user
+  end
+
+  def password_update
+    @user = current_user
+    if @user.update(password_params)
+      flash[:notice] = 'パスワードを変更しました。'
+      redirect_to root_path
+    else
+      @userfind = current_user
+      flash.now[:alert] =  'パスワードが変更できませんでした。'
+      render :password_edit
+    end
+  end
+
+  def status
+    @user = current_user
+  end
+
+  def status_update #退会アクション
+    @user = current_user
+    @user.update(come_out: true)
+    reset_session
+    flash[:alert] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private
   def user_params
       params.require(:user).permit(:name, :name_kana, :nickname, :profile_image, :introduction ,:one_word, :email)
+  end
+
+  def password_params
+      params.require(:user).permit(:password, :password_confirmation)
   end
 end

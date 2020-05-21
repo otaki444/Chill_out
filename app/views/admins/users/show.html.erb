@@ -1,2 +1,51 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+<h2>会員詳細</h2>
+<div class="row">
+	<span class="col-xs-2 name">ユーザーID</span>
+	<span class="col-xs-10"><%= @user.id %></span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">会員状況</span>
+	<% if @user.come_out == true %>
+		<span>退会済み</span>
+	<% else %>
+		<span>会員</span>
+	<% end %>
+	<span class="col-xs-10"><%= @user.id %></span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">氏名</span>
+	<span class="col-xs-10">
+		<%= @user.name %>
+	</span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">フリガナ</span>
+	<span class="col-xs-10">
+		<%= @user.name_kana %>
+	</span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">投稿件数</span>
+	<span class="col-xs-10">
+		<%= @user.posts.count %>件
+	</span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">ひとこと</span>
+	<span class="col-xs-10">
+		<%= @user.one_word %>
+	</span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">自己紹介</span>
+	<span class="col-xs-10">
+		<%= @user.introduction %>
+	</span>
+</div>
+<div class="row">
+	<span class="col-xs-2 name">メールアドレス</span>
+	<span class="col-xs-10">
+		<%= @user.email %>
+	</span>
+</div>
+<%= link_to '変更する', edit_admins_user_path(@user), class: 'fas fa-user-edit' %>

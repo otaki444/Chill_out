@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     get '/follow', to: 'relationships#follow'
     get '/follower', to: 'relationships#follower'
+    get '/password/edit', to:"users#password_edit"
+    patch '/password/edit' ,to: "users#password_update"
+    get '/status', to: 'users#status'
+    patch '/status', to: 'users#status_update'
     resource :relationships, only: [:create, :destroy]
     resources :images, only: [:index]
   end

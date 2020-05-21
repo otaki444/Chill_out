@@ -275,6 +275,18 @@ footer {
 	}
 }
 
+.btn-primary {
+	color: #337ab7;
+	background-color: #fff;
+	transition: all 0.3s;
+
+	&:hover {
+		color: #fff;
+		background-color: #337ab7;
+		border-color: #337ab7;
+	}
+}
+
 /* いいね */
 .like {
 	color: #ff73ce;

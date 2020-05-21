@@ -24,6 +24,10 @@ class User < ApplicationRecord
 	validates :introduction,    length: { maximum: 50 }
 	validates :one_word,    length: { maximum: 20 }
 
+	def active_for_authentication?
+		super && (self.come_out == false)
+	end
+
 	def following?(user)
 		follow.find_by(follow_id: user)
 	end

@@ -1,2 +1,40 @@
-<h1>Admins::Users#index</h1>
-<p>Find me in app/views/admins/users/index.html.erb</p>
+<h1 class="color">会員一覧</h1>
+<div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>会員ID</th>
+					<th>登録状況</th>
+					<th>プロフィール画像</th>
+					<th>氏名（フリガナ）</th>
+					<th>ニックネーム</th>
+					<th>メールアドレス</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.id %></td>
+					<td>
+						<% if user.come_out == true %>
+							<span>退会済み</span>
+						<% else %>
+							<span>会員</span>
+						<% end %>
+					</td>
+					<td><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'70x70', class: 'user-image' %></td>
+					<td>
+						<%= link_to admins_user_path(user) do %>
+							<span><%= user.name %>（<%= user.name_kana %>）</span>
+						<% end %>
+					</td>
+					<td><%= user.nickname %></td>
+					<td><%= user.email %></td>
+				</tr>
+				<% end %>
+				<%= paginate @users %>
+			</tbody>
+		</table>
+	</div>
+</div>

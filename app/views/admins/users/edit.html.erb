@@ -41,15 +41,24 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
+      <div class="field">
+        <span class="need">※ 登録状況</span>
+        <div class="radio-inline">
+          <%= f.radio_button :come_out, :false %>
+          <%= f.label :come_out, "会員" %>
+        </div>
+
+        <div class="radio-inline">
+          <%= f.radio_button :come_out, :true %>
+          <%= f.label :come_out, "退会済み" %>
+        </div>
+
+      </div>
+
       <div class="actions field">
         <%= f.submit "変更する", class: "btn btn-success form-control" %>
       </div>
-      <div class="actions field">
-        <%= link_to "パスワードの変更はこちら", user_password_edit_path(@user),class: "btn btn-primary form-control" %>
-      </div>
-      <div class="actions field">
-        <%= link_to "退会される方はこちら", user_status_path(@user),class: "btn btn-danger form-control" %>
-      </div>
+
     <% end %>
   </div>
 </div>
