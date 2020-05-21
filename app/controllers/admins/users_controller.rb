@@ -24,7 +24,6 @@ class Admins::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      binding.pry
       flash[:notice] = "変更しました"
       redirect_to admins_user_path(@user.id)
     else

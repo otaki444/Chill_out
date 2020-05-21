@@ -1,25 +1,78 @@
 <div class="row user-show">
 	<div class="col-xs-2">
 		<!-- 会員情報 -->
-		<%= render 'users/user-info', user:@user %>
-
-		<!-- DMへのリンク -->
-		<div class="chat">
-			<% if @user.id != current_user.id %>
-				<% if (current_user.following? @user) && (@user.following? current_user)  %>
-					<% if @isRoom == true %>
-						<%= link_to 'チャットへ', room_path(@roomId) %>
-					<% else %>
-						<%= form_for @room do |f| %>
-							<%= fields_for @entry do |e| %>
-								<%= e.hidden_field :user_id, value: @user.id %>
+		<table class="table user-info">
+			<thead>
+				<tr>
+					<th class="row">
+						<div class="col-xs-5">
+							<%= link_to user_path(@user) do %>
+								<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'70x70', class: 'user-image' %>
 							<% end %>
-							<%= f.submit "チャットを始める", class: 'btn btn-success' %>
+						</div>
+						<div class="col-xs-7 --right">
+							<%= @user.nickname %><br>
+							<% if @user.id == current_user.id %>
+								<%= link_to '', edit_user_path(@user), class: 'fas fa-user-edit' %>
+							<% end %>
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% if @user.id != current_user.id %>
+					<tr>
+						<td><%= render 'relationships/relation', user:@user %></td>
+					</tr>
+				<% end %>
+				<% if @user.introduction.present? %>
+					<tr>
+						<td class="introduction"><%= @user.introduction %></td>
+					</tr>
+				<% end %>
+				<% if @user.one_word.present? %>
+					<tr>
+						<td class="">ひとこと　<%= @user.one_word %></td>
+					</tr>
+				<% end %>
+				<tr>
+					<td><%= link_to user_path(@user) do %>
+							投稿 <%= @user.posts.count %> 件
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td><%= link_to user_follow_path(@user.id) do %>
+							フォロー <%= @user.follows.count %> 人
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td><%= link_to user_follower_path(@user.id) do %>
+							フォロワー <%= @user.followers.count %> 人
+						<% end %>
+					</td>
+				</tr>
+				<% if @user.id != current_user.id %>
+					<% if (current_user.following? @user) && (@user.following? current_user)  %>
+						<% if @isRoom == true %>
+						<tr>
+							<td>
+								<%= link_to 'チャットへ', room_path(@roomId) %>
+						<% else %>
+								<%= form_for @room do |f| %>
+									<%= fields_for @entry do |e| %>
+										<%= e.hidden_field :user_id, value: @user.id %>
+									<% end %>
+									<%= f.submit "チャットを始める", class: 'btn btn-success' %>
+								<% end %>
+							</td>
+						</tr>
 						<% end %>
 					<% end %>
 				<% end %>
-			<% end %>
-		</div>
+			</tbody>
+		</table>
 	</div>
 
 	<div class="col-xs-8">
