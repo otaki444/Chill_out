@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-
     if params[:tag_name]
       @posts = Post.page(params[:page]).reverse_order.tagged_with("#{params[:tag_name]}")
     else

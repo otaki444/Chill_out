@@ -1,6 +1,6 @@
 <div class="row user-edit">
   <div class="col-xs-6 col-xs-offset-4">
-    <%= form_for(@user) do |f| %>
+    <%= form_for @user, url: admins_user_path do |f| %>
 
       <div class="field">
         <span class="need">※</span>

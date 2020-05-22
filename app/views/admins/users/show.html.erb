@@ -6,9 +6,9 @@
 <div class="row">
 	<span class="col-xs-2 name">会員状況</span>
 	<% if @user.come_out == true %>
-		<span>退会済み</span>
+		<span class="status">退会済み</span>
 	<% else %>
-		<span>会員</span>
+		<span class="status">会員</span>
 	<% end %>
 	<span class="col-xs-10"><%= @user.id %></span>
 </div>

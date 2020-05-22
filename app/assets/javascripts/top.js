@@ -1,4 +1,4 @@
-$('.explanation a').click(function() {
+$('.move').click(function() {
     var id = $(this).attr('href');
     var position = $(id).offset().top;
 

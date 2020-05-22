@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     resources :images, only: [:index]
   end
-
+  resources :inquiries, only: [:create]
   resources :messages, only: [:create] #DM機能
   resources :rooms, only: [:create,:show]
 
