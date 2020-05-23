@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 	  registrations: 'users/registrations'
 	}
 	devise_for :admins, controllers: {
-	  sessions:      'admins/sessions',
-	  passwords:     'admins/passwords',
-	  registrations: 'admins/registrations'
+	  sessions:      'admins/sessions'
 	}
 
 	# 管理者側
@@ -25,7 +23,7 @@ Rails.application.routes.draw do
   get '/rooms/create', to: 'rooms#create'
   get '/rooms/show', to: 'rooms#show'
 
-  resources :users, only: [:show, :edit, :update, :destroy] do
+  resources :users, only: [:show, :edit, :update] do
     get '/follow', to: 'relationships#follow'
     get '/follower', to: 'relationships#follower'
     get '/password/edit', to:"users#password_edit"
@@ -33,7 +31,6 @@ Rails.application.routes.draw do
     get '/status', to: 'users#status'
     patch '/status', to: 'users#status_update'
     resource :relationships, only: [:create, :destroy]
-    resources :images, only: [:index]
   end
   resources :inquiries, only: [:create]
   resources :messages, only: [:create] #DM機能
