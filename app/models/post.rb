@@ -6,8 +6,8 @@ class Post < ApplicationRecord
 	has_many :post_images, class_name: "Image", dependent: :destroy
 	accepts_attachments_for :post_images, attachment: :image
 
-	validates :title,    length: { maximum: 20 }
-	validates :article,    length: { maximum: 100 }
+	validates :title, presence: true, length: { maximum: 20 }
+	validates :article, presence: true, length: { maximum: 100 }
 
 	acts_as_taggable
 

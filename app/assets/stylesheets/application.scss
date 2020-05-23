@@ -112,6 +112,7 @@ header {
 .auto {
 	width: 100%;
 	background: linear-gradient(to right, #fff, #e8d8f2, #fff);
+	height: 100vh;
 }
 
 .posts {
@@ -369,4 +370,8 @@ a:hover {
 		margin: 0;
 		border-radius: 0;
 	}
+}
+/* エラーメッセージ */
+#error_explanation {
+	color: red;
 }
