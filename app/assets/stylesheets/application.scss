@@ -73,6 +73,24 @@ header {
 	text-align: center;
 }
 
+
+.heading {
+	color: #62e3c5;
+	font-weight: bold;
+}
+/* ログイン&新規登録 */
+.login, .signup {
+	margin-top: 30px;
+
+	& .field {
+		margin-top: 20px;
+	}
+
+	& .actions {
+		margin: 20px 0;
+	}
+}
+
 /* 検索 */
 .searchs {
 	display: inline-block;
