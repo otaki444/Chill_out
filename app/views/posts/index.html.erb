@@ -21,7 +21,7 @@
 					<%= form_with model: @post, html: { class: "col-xs-offset-1" } do |f| %>
 						<h2>投稿フォーム</h2>
 						<div class="field">
-							<h4>タイトル</h4>
+							<h4><span class="need">※</span>タイトル</h4>
 							<%= f.text_field :title, placeholder: "20文字以内", class: '__title form-control' %>
 						</div>
 						<div class="field">
@@ -33,7 +33,7 @@
 							<%= f.text_field :tag_list, value: @post.tag_list, placeholder: "複数追加は半角スペースを入れてください", class: '__tag form-control' %>
 						</div>
 						<div class="field">
-							<h4>コメント</h4>
+							<h4><span class="need">※</span>コメント</h4>
 							<%= f.text_area :article, placeholder: "100文字以内", class: '__article form-control' %>
 						</div>
 						<div class="actions">
