@@ -4,7 +4,7 @@
 
 /* home画面 */
 .top-image {
-	background-image: url(/assets/relax.jpg);
+	background-image: image-url("relax.jpg");
 	background-size: cover;
 	height: 710px;
 	background-position: center;
@@ -111,7 +111,7 @@
 }
 /* アバウトページ */
 .about-image {
-	background-image: url(/assets/home1.jpg);
+	background-image: image-url("home1.jpg");
 	background-position: bottom;
 	background-size: cover;
 	width: 100%;
