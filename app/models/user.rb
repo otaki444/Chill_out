@@ -17,12 +17,11 @@ class User < ApplicationRecord
   	has_many :entries, dependent: :destroy
 
 	attachment :profile_image
-	validates :name, presence: true
-	validates :name_kana, presence: true
-	validates :nickname, presence: true
-	validates :name,    length: { in: 2..20 }
-	validates :introduction,    length: { maximum: 50 }
-	validates :one_word,    length: { maximum: 20 }
+	validates :name, presence: true, length: { in: 2..20 }
+	validates :name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+	validates :nickname, presence: true, length: { maximum: 20 }
+	validates :introduction, length: { maximum: 50 }
+	validates :one_word, length: { maximum: 20 }
 
 	def active_for_authentication?
 		super && (self.come_out == false)

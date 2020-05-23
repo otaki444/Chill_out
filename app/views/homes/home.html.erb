@@ -94,6 +94,13 @@
 	<div class="col-md-6 col-xs-offset-3">
 		<h2 class="--title text-center">Contact -お問い合わせ-</h2>
 
+  <% if @inquiry.errors.any? %>
+        <span class="text-danger"><%= @inquiry.errors.count %>件のエラー。</span><br>
+        <% @inquiry.errors.full_messages.each do |message| %>
+          <span class="text-danger"><%= message %>。</span><br>
+        <% end %>
+  <% end %>
+
 		<%= form_with(model: @inquiry, local: true) do |f| %>
 		  	<div class="form-group">
 		    	<%= f.label :name, 'お名前' %>

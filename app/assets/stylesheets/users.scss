@@ -11,12 +11,14 @@
 	border-radius: 18px;
 
 	& #slide {
-	border-radius: 15px;
+		border-radius: 15px;
+		background-position: center;
+		background-size: cover;
 	}
 }
 
 .user-show {
-	background: linear-gradient(to right, #62a7e3, #62e3ba, #c9e362);
+	background: linear-gradient(to right, #62a7e385, #62e3ba78, #c9e3627a);
 }
 .user-edit {
 	margin-top: 50px;
