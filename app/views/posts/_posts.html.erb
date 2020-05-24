@@ -3,7 +3,7 @@
 	<section class="__post">
 		<%= link_to post_path(post), class: '-link' do %>
 			<h3>
-				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %>
+				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_user.jpg", size:'50x50', class: 'user-image' %>
 				<span class="--nickname"><%= post.user.nickname %></span><br>
 			</h3>
 			<span class="--title"><%= post.title %></span>
