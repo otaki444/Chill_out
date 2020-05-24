@@ -6,7 +6,7 @@
 
 	<!-- 投稿詳細 -->
 	<div class="col-xs-8">
-		<h3><%= @post.title %></h3>
+		<h3 class="__title"><%= @post.title %></h3>
 		<div id="slide-post">
 		    <div id="slide">
 				<% if @post.post_images.present? %>
@@ -21,7 +21,7 @@
 
 		<div><%= render 'posts/tag_list', tag_list: @post.tag_list %></div>
 
-		<p><%= @post.article %></p>
+		<p class="__article"><%= @post.article %></p>
 		<% if @post.user_id == current_user.id %>
 			<span id='favorite-<%= @post.id %>'>
 				<%= render partial: 'favorites/favorite', locals: { post: @post} %>

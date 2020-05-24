@@ -101,6 +101,22 @@
 /* 投稿詳細 */
 .post-show {
 	background: linear-gradient(to right, #fff, #62a7e385, #fff);
+
+	& .__title, .__article {
+		text-align: center;
+		font-weight: bold;
+		font-size: 30px;
+		color: #fff;
+		margin-top: 30px;
+	}
+
+	& .badge {
+		background-color: #2b04fb;
+	    padding: 10px 20px;
+	    font-size: 20px;
+	    margin-left: 10px;
+	    border-radius: 20px;
+	}
 }
 #slide-post {
 	height: 500px;

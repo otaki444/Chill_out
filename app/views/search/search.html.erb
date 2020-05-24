@@ -1,6 +1,7 @@
 <% if @model == "user" %>
-  <h3>ユーザー検索</h3>
+  <section class="search">
     <div class="col-xs-6 col-xs-offset-3">
+      <h3 class="heading">ユーザー検索</h3>
       <table class="table">
         <thead>
           <tr>
@@ -14,7 +15,7 @@
             <tr>
               <td>
                 <%= link_to user_path(user.id) do %>
-                  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100' %>
+                  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'80x80', class: 'user-image' %>
                 <% end %>
               </td>
               <td><%= user.nickname %></td>
@@ -24,13 +25,14 @@
         </tbody>
       </table>
     </div>
+  </section>
 <% end %>
 
 <% if @model == "post" %>
   <section  class="auto">
-    <h3>投稿検索</h3>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
+        <h2 class="heading">投稿検索</h2>
         <!-- 投稿一覧表示 -->
         <%= render 'posts/posts', posts:@posts %>
       </div>
