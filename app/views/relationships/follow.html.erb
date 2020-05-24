@@ -16,7 +16,7 @@
 				<% @follows.each do |user| %>
 				<tr>
 					<td><%= link_to user_path(user) do %>
-							<%= attachment_image_tag user, :profile_image, fallback: "no_user.jpeg", size:'50x50', class: 'user-image' %>
+							<%= attachment_image_tag user, :profile_image, fallback: "no_user.jpg", size:'50x50', class: 'user-image' %>
 						<% end %>
 					</td>
 					<td><%= user.nickname %></td>
