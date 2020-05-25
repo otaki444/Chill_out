@@ -56,18 +56,18 @@
 				<% if @user.id != current_user.id %>
 					<% if (current_user.following? @user) && (@user.following? current_user)  %>
 						<% if @isRoom == true %>
-						<tr>
-							<td>
-								<%= link_to 'チャットへ', room_path(@roomId) %>
+							<tr>
+								<td>
+									<%= link_to 'チャットへ', room_path(@roomId) %>
 						<% else %>
-								<%= form_for @room do |f| %>
-									<%= fields_for @entry do |e| %>
-										<%= e.hidden_field :user_id, value: @user.id %>
+									<%= form_for @room do |f| %>
+										<%= fields_for @entry do |e| %>
+											<%= e.hidden_field :user_id, value: @user.id %>
+										<% end %>
+										<%= f.submit "チャットを始める", class: 'btn btn-success' %>
 									<% end %>
-									<%= f.submit "チャットを始める", class: 'btn btn-success' %>
-								<% end %>
-							</td>
-						</tr>
+								</td>
+							</tr>
 						<% end %>
 					<% end %>
 				<% end %>
