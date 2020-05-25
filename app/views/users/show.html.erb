@@ -55,20 +55,20 @@
 				</tr>
 				<% if @user.id != current_user.id %>
 					<% if (current_user.following? @user) && (@user.following? current_user)  %>
-						<% if @isRoom == true %>
-							<tr>
-								<td>
+						<tr>
+							<td>
+								<% if @isRoom == true %>
 									<%= link_to 'チャットへ', room_path(@roomId) %>
-						<% else %>
+								<% else %>
 									<%= form_for @room do |f| %>
 										<%= fields_for @entry do |e| %>
 											<%= e.hidden_field :user_id, value: @user.id %>
 										<% end %>
 										<%= f.submit "チャットを始める", class: 'btn btn-success' %>
 									<% end %>
-								</td>
-							</tr>
-						<% end %>
+								<% end %>
+							</td>
+						</tr>
 					<% end %>
 				<% end %>
 			</tbody>
@@ -81,9 +81,11 @@
 		    <div id="slide">
 				<% @slide.each do |post| %>
 					<% if post.favorited_by?(@user) %>
-						<% post.post_images.each do |image| %>
-							<%= attachment_image_tag image, :image %>
+						<% post.post_images.each do |post_image| %>
+							<%= attachment_image_tag post_image, :image %>
 						<% end %>
+					<% else %>
+						<%= image_tag 'no_favorite.png' %>
 					<% end %>
 				<% end %>
 		    </div>

@@ -10,8 +10,8 @@
 		<div id="slide-post">
 		    <div id="slide">
 				<% if @post.post_images.present? %>
-				  <% @post.post_images.each do |image| %>
-				    <%= attachment_image_tag image, :image, class: '--image' %>
+				  <% @post.post_images.each do |post_image| %>
+				    <%= attachment_image_tag post_image, :image, class: '--image' %>
 				  <% end %>
 				<% else %>
 				    <%= image_tag 'no_image.jpg', class: 'no_image' %>
