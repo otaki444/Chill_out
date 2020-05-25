@@ -101,6 +101,7 @@
 /* 投稿詳細 */
 .post-show {
 	background: linear-gradient(to right, #fff, #62a7e385, #fff);
+	min-height: 100vh;
 
 	& .__title, .__article {
 		text-align: center;
