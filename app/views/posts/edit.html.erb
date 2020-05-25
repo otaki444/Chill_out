@@ -22,6 +22,10 @@
 				<%= f.attachment_field :post_images_images, multiple: true,  name: "images_attributes[0][image][]" %>
 			</div>
 			<div class="field">
+				<h4>タグ</h4>
+				<%= f.text_field :tag_list, value: @post.tag_list, placeholder: "複数追加は半角スペースを入れてください", class: '__tag form-control' %>
+			</div>
+			<div class="field">
 				<%= f.label :article, 'コメント' %><br />
 				<%= f.text_area :article, class: "form-control" %>
 			</div>
