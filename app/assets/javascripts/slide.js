@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
         // ナビゲーションの形（"block" or "bubble"）
         navType : 'bubble',
         // 子要素の種類（"div" or "img"）
-        childrenElementType : 'img',
+        childrenElementType : 'div',
         // ナビゲーション矢印の表示（trueで表示）
         arrows : true,
         // スライドショーの自動再生（falseで自動再生なし）
