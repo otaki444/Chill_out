@@ -2,20 +2,20 @@
 	<div id="comment-<%= comment.id %>" class="comment">
 		<% if comment.user == current_user %>
 			<div class="text-right">
-				<span>
+				<span class="__time">
 					<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
 				</span><br>
 				<span class="__info">
 					<%= comment.comment %>
 				</span>
-				<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, class: '-image' %>
+				<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_user.jpg", size:'60x60', class: '-image' %>
 				<%= link_to "削除", post_comment_path(comment.id, comment.post.id), method: :delete, remote: true, class: "btn btn-danger" %>
 			</div>
 		<% else %>
-			<span>
+			<span class="__time">
 				<%= comment.created_at.strftime('%m月%d日 %H:%M') %>
 			</span><br>
-			<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, class: '-image' %>
+			<%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_user.jpg", size:'60x60', class: '-image' %>
 			<span class="__info">
 				<%= comment.user.nickname %>
 				<%= comment.comment %>
