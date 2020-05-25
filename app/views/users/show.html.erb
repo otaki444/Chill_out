@@ -79,14 +79,14 @@
 		<!-- スライドショー -->
 		<div id="slide-box">
 		    <div id="slide">
-				<% @slide.each do |post| %>
-					<% if post.favorited_by?(@user) %>
+		    	<% if Favorite.exists?(user_id: current_user.id) %>
+					<% @slide.each do |post| %>
 						<% post.post_images.each do |post_image| %>
 							<%= attachment_image_tag post_image, :image %>
 						<% end %>
-					<% else %>
-						<%= image_tag 'no_favorite.png' %>
 					<% end %>
+				<% else %>
+					<%= image_tag 'no_favorite.png' %>
 				<% end %>
 		    </div>
 		</div>
