@@ -84,6 +84,8 @@
 						<% post.post_images.each do |image| %>
 							<%= attachment_image_tag image, :image %>
 						<% end %>
+					<% else %>
+						<%= image_tag 'no_favorite.png' %>
 					<% end %>
 				<% end %>
 		    </div>
