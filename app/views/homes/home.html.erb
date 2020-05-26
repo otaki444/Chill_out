@@ -41,7 +41,9 @@
 <div class="item" id="post">
 	<div class="col-xs-6">
 		<h2 class="--title">Post</h2>
-		<p>音楽、ファッション、インテリア、料理、ヨガ、DIYなど<br>様々な自分ならではのこだわりを投稿してみましょう！</p>
+		<p class="--article">音楽、ファッション、インテリア、料理、ヨガ、DIYなど<br>
+			様々な自分ならではのこだわりを投稿してみましょう！
+		</p>
 	</div>
 	<div class="col-xs-6">
 		<i class="fas fa-camera-retro"></i>
@@ -54,7 +56,7 @@
 	</div>
 	<div class="col-xs-6">
 		<h2 class="--title">Favorite</h2>
-		<p>自分の投稿をお気に入りにしてみましょう！<br>
+		<p class="--article">自分の投稿をお気に入りにしてみましょう！<br>
 			お気に入りした投稿写真はまとめてスライドショーにできます
 		</p>
 	</div>
@@ -63,7 +65,7 @@
 <div class="item" id="good">
 	<div class="col-xs-6">
 		<h2 class="--title">Good</h2>
-		<p>興味を持った投稿には『いいね』をしてみましょう！</p>
+		<p class="--article">興味を持った投稿には『いいね』をしてみましょう！</p>
 	</div>
 	<div class="col-xs-6">
 		<i class="fas fa-heart"></i>
@@ -76,14 +78,14 @@
 	</div>
 	<div class="col-xs-6">
 		<h2 class="--title">Comment</h2>
-		<p>気になった投稿にはコメントしてみましょう！</p>
+		<p class="--article">気になった投稿にはコメントしてみましょう！</p>
 	</div>
 </div>
 
 <div class="item" id="follow">
 	<div class="col-xs-6">
 		<h2 class="--title">Follow</h2>
-		<P>フォローすることでお友達と繋がることができます！</P>
+		<P class="--article">フォローすることでお友達と繋がることができます！</P>
 	</div>
 	<div class="col-xs-6">
 		<i class="fas fa-users"></i>
@@ -92,7 +94,7 @@
 
 <div id="inquiry">
 	<div class="col-xs-6 col-xs-offset-3">
-		<h2 class="--title text-center">Contact -お問い合わせ-</h2>
+		<h2 class="--title text-center">Contact <i class="fas fa-envelope"></i></h2>
 
   <% if @inquiry.errors.any? %>
         <span class="text-danger"><%= @inquiry.errors.count %>件のエラー。</span><br>
@@ -104,15 +106,15 @@
 		<%= form_with(model: @inquiry, local: true) do |f| %>
 		  	<div class="form-group">
 		    	<%= f.label :name, 'お名前' %>
-		    	<%= f.text_field :name, class: 'form-control' %>
+		    	<%= f.text_field :name, class: '--field' %>
 			</div>
 		  	<div class="form-group">
 		    	<%= f.label :email, 'メールアドレス' %>
-		    	<%= f.text_field :email, class: 'form-control' %>
+		    	<%= f.text_field :email, class: '--field' %>
 			</div>
 		 	<div class="form-group">
 		   		<%= f.label :message, 'お問い合わせ内容' %>
-		   		<%= f.text_area :message, size: '10x10', class: 'form-control' %>
+		   		<%= f.text_area :message, size: '10x10', class: 'form-control --area' %>
 		 	</div>
 		  	<%= f.submit '送信', data: { confirm: "送信しますか?" }, class: 'form-control btn btn-primary' %>
 		<% end %>
