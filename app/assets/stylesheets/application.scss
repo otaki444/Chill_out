@@ -35,13 +35,13 @@ header {
 	box-shadow: 0 3px 10px 3px rgba(0,0,0,0.4);
 	position: sticky;
 	top: 0;
-	z-index: 100;
+	z-index: 10;
 }
 
 .navbar-nav > li > a {
 	font-family: 'sans-serif';
 	line-height: 55px;
-	padding: 10px 20px;
+	padding: 1rem 1.5rem;
 	text-align: center;
 	color: gray;
 	font-size: 20px;
@@ -95,7 +95,7 @@ header {
 .searchs {
 	display: inline-block;
 	text-align: center;
-	margin-top: 25px;
+	margin: 2.5rem 0 0 3%;
 	color: black;
 }
 
@@ -111,7 +111,7 @@ header {
 
 .auto {
 	width: 100%;
-	background: linear-gradient(to right, #fff, #e8d8f2, #fff);
+	background: linear-gradient(to top, #ddafff, #fff);
 	padding-bottom: 50px;
 	min-height: 100vh;
 }
@@ -188,8 +188,7 @@ footer {
 	height: 50px;
 	background-color: #62e3c5;
 	text-align: center;
-	margin-top: auto;
-	line-height: 50px;
+	line-height: 5rem;
 	position: absolute;
 	bottom: 0;
 	color: white;
@@ -241,7 +240,7 @@ footer {
 
 /* タグ検索 */
 .badge {
-	background-color: #5b41e8;
+	background-color: #2b04fb;
 	padding: 5px 10px;
 }
 .tags {
@@ -375,4 +374,85 @@ a:hover {
 /* エラーメッセージ */
 #error_explanation {
 	color: red;
+}
+
+/* ハンバーガーメニュー */
+.btn-gnavi {
+	margin: 0;
+}
+#wrapper {
+	display: inline-block;
+	float: right;
+}
+
+@media screen and (max-width: 1000px) {
+	.header-nav {
+	    position: fixed;
+	    top: 0;
+	    right: -25rem;
+	    width: 25rem;
+	    height: 100%;
+	    padding-top: 5rem;
+	    background: #636effed;
+	    box-sizing: border-box;
+	    z-index: 2;
+
+	    & ul li {
+		    display:block;
+		    padding: 0.5rem 3rem;
+		    width: 100%;
+
+		    & a {
+		    	color: #fff;
+
+		    	&:hover {
+		    	color: #62e3c5
+		    	}
+		    }
+	    }
+	}
+
+	.btn-gnavi {
+		position: fixed;
+		top: 2.5rem;
+		right: 3rem;
+		width: 3rem;
+		height: 3rem;
+		z-index: 3;
+		box-sizing: border-box;
+		cursor: pointer;
+		-webkit-transition: all 0.5s;
+		transition: all 0.5s;
+
+		& .bar {
+			position: absolute;
+			width: 3rem;
+			height: 0.4rem;
+			background: #3ce6be;
+			border-radius: 10px;
+			-webkit-transition: all 0.5s;
+			transition: all 0.5s;
+
+			&:nth-child(1) {
+				top: 0;
+			}
+
+			&:nth-child(2) {
+				top: 1rem;
+			}
+
+			&:nth-child(3) {
+				top: 2rem;
+			}
+		}
+
+		&.open {
+			-webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+
+			& span {
+				background: blue;
+			}
+		}
+	}
 }

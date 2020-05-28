@@ -15,40 +15,50 @@
   <body>
     <header>
       <!-- タイトル -->
-      <nav class="header-nav">
-        <% if user_signed_in? %>
-          <%= link_to 'Chill out', posts_path, class: 'header--title pull-left' %>
-        <% elsif admin_signed_in? %>
-          <%= link_to 'Chill out', admins_top_path, class: 'header--title pull-left' %>
-        <% else %>
-          <%= link_to 'Chill out', root_path, class: 'header--title pull-left' %>
-        <% end %>
+      <% if user_signed_in? %>
+        <%= link_to 'Chill out', posts_path, class: 'header--title pull-left' %>
+      <% elsif admin_signed_in? %>
+        <%= link_to 'Chill out', admins_top_path, class: 'header--title pull-left' %>
+      <% else %>
+        <%= link_to 'Chill out', root_path, class: 'header--title pull-left' %>
+      <% end %>
 
-        <!-- 検索機能 -->
-        <% if user_signed_in? %>
-          <div class="searchs">
-            <%= form_tag(search_path, method: :get) do %>
-              <%= text_field_tag 'search[content]' %>
-              <%= select_tag 'search[model]', options_for_select({ 'ニックネーム' => 'user', '投稿タイトル' => 'post'}) %>
-              <%= submit_tag '検索', class: 'btn btn-success' %>
-            <% end %>
-          </div>
-        <% end %>
-
-        <!-- 遷移リンク -->
-        <ul class="nav navbar-nav pull-right">
-          <% if request.fullpath.include? "admin"%>   <%# urlにadminという文字があった場合下記を実行 %>
-            <%= render "layouts/admin_header" %>
-          <% else %>
-            <%= render "layouts/user_header" %>
+      <!-- 検索機能 -->
+      <% if user_signed_in? %>
+        <div class="searchs">
+          <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag 'search[content]' %>
+            <%= select_tag 'search[model]', options_for_select({ 'ニックネーム' => 'user', '投稿タイトル' => 'post'}) %>
+            <%= submit_tag '検索', class: 'btn btn-success' %>
           <% end %>
-        </ul>
-      </nav>
+        </div>
+      <% end %>
+
+      <!-- レスポンシブ（ハンバーガーメニュー） -->
+      <div id="wrapper">
+        <p class="btn-gnavi">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </p>
+        <nav class="header-nav" id="global-navi">
+
+          <!-- 遷移リンク -->
+          <ul class="nav navbar-nav menu">
+            <% if request.fullpath.include? "admin"%>   <%# urlにadminという文字があった場合下記を実行 %>
+              <%= render "layouts/admin_header" %>
+            <% else %>
+              <%= render "layouts/user_header" %>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <body>
+    <main>
       <div class="container-fluid">
         <div class="row">
+          <!-- フラッシュメッセージ -->
           <div class="col-xs-12 flash">
             <% if flash[:notice] %>
               <div class="alert alert-success text-center">
@@ -67,7 +77,7 @@
         </div>
         <%= yield %>
       </div>
-    </body>
+    </main>
 
     <footer>
       <span>©Chill out</span>
