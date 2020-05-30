@@ -247,7 +247,7 @@ footer {
 	position: fixed;
 	top: 120px;
 	right: 20px;
-	width: 230px;
+	width: 15%;
 
 	& .__title {
 		color: #62e3c5;
@@ -360,6 +360,9 @@ footer {
 
 a:hover {
 	text-decoration: none;
+}
+.page {
+	text-align: center;
 }
 
 /* フラッシュメッセージ */
