@@ -81,8 +81,10 @@
 		    <div id="slide">
 		    	<% if Favorite.exists?(user_id: @user.id) %>
 					<% @slide.each do |post| %>
-						<% post.post_images.each do |post_image| %>
-							<%= attachment_image_tag post_image, :image %>
+						<% if post.favorited_by?(current_user) %>
+							<% post.post_images.each do |post_image| %>
+								<%= attachment_image_tag post_image, :image %>
+							<% end %>
 						<% end %>
 					<% end %>
 				<% else %>
