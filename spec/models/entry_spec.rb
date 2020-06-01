@@ -25,7 +25,7 @@ RSpec.describe Entry, type: :model do
 	    )
 	end
 
-    context 'Entryカラム' do
+    context 'Entry' do
 	    it '必要項目が存在していれば有効' do
 	      expect(@entry).to be_valid
 	    end

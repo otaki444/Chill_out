@@ -25,7 +25,7 @@ RSpec.describe Favorite, type: :model do
 	    )
 	end
 
-    context 'Favoriteカラム' do
+    context 'Favorite' do
 	    it '必要項目が存在していれば有効' do
 	      expect(@favorite).to be_valid
 	    end
