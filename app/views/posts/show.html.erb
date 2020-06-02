@@ -26,6 +26,9 @@
 			<span id='favorite-<%= @post.id %>'>
 				<%= render partial: 'favorites/favorite', locals: { post: @post} %>
 			</span>
+			<span id='like-<%= @post.id %>'>
+				<%= render partial: 'likes/like', locals: { post: @post} %>
+			</span>
 			<i class="fas fa-comment"></i>
 		<% else %>
 			<span id='like-<%= @post.id %>'>

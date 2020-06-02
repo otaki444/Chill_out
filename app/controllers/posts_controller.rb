@@ -17,9 +17,8 @@ class PostsController < ApplicationController
        @post.add_images(params[:images_attributes][:"0"][:image])
        redirect_to post_path(@post), notice: '投稿が作成されました！'
     else
-      @posts = Post.page(params[:page]).reverse_order
-      flash.now[:alert] = 'タイトルを入力してください'
-      render :index
+      flash[:alert] = 'タイトル,コメントを入力してください'
+      redirect_to posts_path
     end
   end
 
