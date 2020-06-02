@@ -201,7 +201,6 @@ footer {
 
 /* 会員情報 */
 .user-info {
-	width: 100%;
 	background-color: #62e3c5bd;
 	border-radius: 15px;
 	margin-top: 20px;
@@ -210,6 +209,7 @@ footer {
 	top:120px;
 	left: 20px;
 	width: 15%;
+	min-width: 200px;
 	color: white;
 	font-weight: bold;
 
@@ -458,4 +458,8 @@ a:hover {
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 1240px) {
+	
 }
