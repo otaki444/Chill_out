@@ -12,7 +12,7 @@ RSpec.describe "Comments", type: :system do
 			click_button 'ログイン'
 		end
 
-		describe '新規投稿' do
+		describe 'コメント' do
 			context '動作の確認' do
 				before do
 					visit post_path(post.id)

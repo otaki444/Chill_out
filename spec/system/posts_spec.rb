@@ -42,5 +42,40 @@ RSpec.describe "Posts", type: :system do
 				end
 			end
 		end
+
+		describe '投稿編集' do
+			context '動作の確認' do
+				before do
+					visit edit_post_path(post.id)
+				end
+				it 'titleフォームが表示される' do
+					expect(page).to have_field 'post[title]'
+				end
+				it 'articleフォームが表示される' do
+					expect(page).to have_field 'post[article]'
+				end
+				it 'tagフォームが表示される' do
+					expect(page).to have_field 'post[tag_list]'
+				end
+				it '画像フォームが表示される' do
+					expect(page).to have_field 'images_attributes[0][image][]'
+				end
+				it '編集成功' do
+					fill_in 'post[title]', with: Faker::Lorem.characters(number:20)
+					fill_in 'post[article]', with: Faker::Lorem.characters(number:100)
+					fill_in 'post[tag_list]', with: Faker::Lorem.characters(number:5)
+					attach_file 'images_attributes[0][image][]', "#{Rails.root}/app/assets/images/book.jpg"
+					click_button '変更'
+					expect(page).to have_content '変更しました'
+				end
+				it '編集失敗' do
+					fill_in 'post[title]', with: ''
+					fill_in 'post[article]', with: ''
+					fill_in 'post[tag_list]', with: ''
+					click_button '変更'
+					expect(page).to have_content '変更に失敗しました'
+				end
+			end
+		end
 	end
 end
