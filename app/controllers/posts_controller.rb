@@ -34,7 +34,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
       if @post.update(post_params)
-        @post.add_images(params[:images_attributes][:"0"][:image])
         flash[:update] = "変更しました"
         redirect_to post_path(@post.id)
       else
@@ -47,6 +46,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
+    flash[:alert] = "投稿を削除しました"
     redirect_to user_path(current_user)
   end
 
