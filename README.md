@@ -1,6 +1,6 @@
 # Chill out
 
-<http://18.181.7.79/>  
+<https://chill-out.work/>  
 EC: メールアドレス test@test.jp パスワード 111111  
 管理: メールアドレス admin@test.jp パスワード 111111
 
