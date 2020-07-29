@@ -34,6 +34,12 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
       if @post.update(post_params)
+        image = params[:images_attributes]
+        if image.present?
+          image[:"0"][:image].each do |image|
+            @post.post_images.create!(image: image)
+          end
+        end
         flash[:update] = "変更しました"
         redirect_to post_path(@post.id)
       else
